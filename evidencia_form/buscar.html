@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Navegación</title>
+    <!-- Incluye los archivos de Bootstrap CSS y JavaScript -->
+    <link rel="stylesheet" src="estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Formularios</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro.html">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tipo_datos.html">Tipos de Datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buscar.html">Buscar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Formulario de Búsqueda</h1>
+    </header>
+
+    <div class="contenido">
+        <div class="busqueda">
+            <form action="#" onsubmit="return false;">
+                <input type="text" id="inputBusqueda" placeholder="Ingrese una palabra...">
+                <button onclick="buscarTexto()">Buscar</button>
+            </form>
+        </div>
+
+        <div class="resultado-busqueda">
+            <h2>Resultados de la Búsqueda</h2>
+            <div class="item">
+                <img src="imagenes/img_1.jpg" alt="Imagen 1">
+                <p>No cabe duda que los gatos son una excelente compañía. Son perfectos cómplices para las personas que buscan 
+                    un compañero con quien descansar, que le guste pasar momentos tranquilos y sobretodo aquel que busca un amigo 
+                    fiel. Muchos artistas afirman que son la mejor compañía y, a veces, una gran inspiración.
+                </p>
+            </div>
+            <div class="item">
+                <img src="imagenes/img_1.jpg" alt="Imagen 2">
+                <p>Sabemos que la familia de los gatos se ha desarrollado y se ha diversificado desde hace muchos años atrás. Los 
+                    felinos son muy fáciles de distinguir por sus cualidades, características e incluso por sus hábitos. Además, 
+                    son los únicos animales que han decidido domesticarse por sí solos.
+                </p>
+            </div>
+            <div class="item">
+                <img src="imagenes/img_2.jpg" alt="Imagen 3">
+                <p>En términos de desarrollo, el primer año de vida de un gato es igual a los primeros 15 años de una vida humana. 
+                    Después de su segundo año, un gato tiene 25 años equivalentes al de un humano. Y después de los dos años, 
+                    cada año de vida de un gato equivale a unos 7 años humanos.
+
+                    Adicionalmente, los gatos pueden vivir hasta un poco más que los 16 años. 
+                </p>
+            </div>
+            <div class="item">
+                <img src="imagenes/img_3.jpg" alt="Imagen 4">
+                <p>Los gatos se comunican a través de vocalizaciones y entre ellas la más popular es el maullido. También, 
+                    cabe mencionar que, junto con el perro, son los animales más populares para escoger como mascota, debido 
+                    a su adaptabilidad y características. 
+                </p>
+            </div>
+            <div class="item">
+                <img src="imagenes/img_4.jpg" alt="Imagen 5">
+                <p> Estos datos curiosos de los gatos que te brindamos son tan sólo algunas de las miles de particularidades 
+                    que posee cada maravilloso gato. Sin duda, son unas mascotas ideales para brindarte amor, felicidad y 
+                    mucha curiosidad.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function buscarTexto() {
+            const input = document.getElementById('inputBusqueda').value.trim().toLowerCase();
+            const items = document.querySelectorAll('.resultado-busqueda .item');
+    
+            for (const item of items) {
+                const contenido = item.textContent.toLowerCase();
+                const textoResaltado = contenido.replace(new RegExp(input, 'gi'), (match) => `<span class="resaltado">${match}</span>`);
+                
+                if (contenido.includes(input)) {
+                    item.style.display = 'block';
+                    item.innerHTML = textoResaltado;
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        }
+    </script>
+
+    <!-- Incluye el archivo de Bootstrap JavaScript al final del body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
